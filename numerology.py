@@ -10,7 +10,7 @@ def _get_alphanum_values():
 			value = 9
 		alphanum_dict[letter] = str(value)
 	
-	for i in range(1, 10):
+	for i in range(0, 10):
 		i = str(i)
 		alphanum_dict[i] = i
 	
