@@ -1,3 +1,5 @@
+'''numerology.py - numerological functions'''
+
 MASTER_NUMBERS = ("11", "22", "33")
 
 def _get_alphanum_values():
@@ -20,6 +22,7 @@ ALPHANUM_VALUES = _get_alphanum_values()
 
 
 def final_sum(*numbers):
+	'''returns the final numerological sum of given numbers'''
 	x = 0
 	for n in numbers:
 		x += int(n)
@@ -30,6 +33,8 @@ def final_sum(*numbers):
 
 
 def all_sums(*numbers):
+	'''returns a tuple of the raw sum, secondary sum, and final sum
+	of given numbers'''
 	x = 0
 	for n in numbers:
 		x += int(n)
@@ -45,6 +50,8 @@ def all_sums(*numbers):
 
 
 def sum_word(word):
+	'''returns the numerological value of a word as a tuple of the raw sum,
+	secondary sum, and final sum'''
 	x = 0
 	for letter in word.lower():
 		x += int(ALPHANUM_VALUES[letter])
