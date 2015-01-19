@@ -7,7 +7,7 @@ class Data:
 	def __init__(self):
 		self._data = dict.fromkeys(
 				[str(i) for i in range(0, 101)],
-				dict()
+				None
 				)
 
 	def load(self, database_filename):
@@ -16,16 +16,17 @@ class Data:
 
 		for row in cur.execute("SELECT * FROM tblNumber"):
 			number = row[0]
+			self._data[number] = dict()
 			d = self._data[number]
-			d["is_master"] = bool(row[1])
+			d["is_master"] = row[1] is "TRUE"
 			d["meaning"] = row[2]
 			d["tarot"] = row[3]
 
-		for row in cur.execute("SELECT * FROM tblColorMusic12"):
+		for row in cur.execute("SELECT * FROM tblColor"):
 			number = row[0]
 			d = self._data[number]
 			d["color"] = row[1]
-			d["color_hex"] = row[2]
+			d["rgb"] = tuple(row[2:5])
 
 		for row in cur.execute("SELECT * FROM tblMusicKeys12"):
 			number = row[0]
@@ -50,5 +51,4 @@ for i in range(0,101):
 	print()
 '''
 data = Data()
-data.load("correspondences.db")
-pprint(data._data['9'])
+data.load("data.db")
