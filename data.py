@@ -18,6 +18,7 @@ class Data:
 			number = row[0]
 			self._data[number] = dict()
 			d = self._data[number]
+			d["number"] = number
 			d["is_master"] = row[1] is "TRUE"
 			d["meaning"] = row[2]
 			d["tarot"] = row[3]
@@ -36,19 +37,3 @@ class Data:
 	
 	def get_data(self, number, attribute):
 		return self._data[number][attribute]
-
-
-
-from pprint import pprint
-'''
-data = Data()
-data.load("correspondences.db")
-for i in range(0,101):
-	for attr in ('is_master', 'meaning', 'tarot', 'color', 'color_hex', 'music_note', 'octave_freq'):
-		d = data.get_data(str(i), attr)
-		print(attr, end=': ')
-		print(d, end=', ')
-	print()
-'''
-data = Data()
-data.load("data.db")
