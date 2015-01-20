@@ -33,8 +33,8 @@ class Pirouette:
 	def plot_number_frequency(self, numbers):
 		'''Display a pie chart of the frequencies each number occurs in list 
 		`numbers`.'''
-		labels = [str(i+1) for i in range(12)]
-		freqs = [0] * 12
+		labels = [str(i+1) for i in range(13)]
+		freqs = [0] * 13
 		for n in numbers:
 			freqs[int(n)] += 1
 			
@@ -95,4 +95,4 @@ if __name__ == '__main__':
 	pirouette = Pirouette(DATABASE)
 	#pirouette.run()
 
-	pirouette.plot_number_frequency([1,1,1,1,2,2,3,3,3,3,3,3,3,3,4,5,5,5,5,6,6,6,7,7,7,7,7,8,8,8,9,9,11,11])
+	pirouette.plot_number_frequency([1,1,1,1,2,2,3,3,3,3,3,3,3,3,4,5,5,5,5,6,6,6,7,7,7,7,7,8,8,8,9,9,10, 10, 10,10,10,10,10,10,10,11,11,12])
