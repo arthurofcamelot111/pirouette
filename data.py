@@ -27,7 +27,8 @@ class Data:
 			number = row[0]
 			d = self._data[number]
 			d["color"] = row[1]
-			d["rgb"] = tuple(row[2:5])
+			d["hex"] = row[2]
+			d["rgb"] = tuple(row[3:6])
 
 		for row in cur.execute("SELECT * FROM tblMusicKeys12"):
 			number = row[0]

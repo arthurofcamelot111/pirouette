@@ -38,7 +38,7 @@ class Pirouette:
 		for n in numbers:
 			freqs[int(n)] += 1
 			
-		colors = [self.data.get_data(str(n), "rgb") for n in range(1, 13)]
+		colors = [self.data.get_data(str(n), "hex") for n in range(1, 13)]
 
 		plt.pie(freqs, labels=labels, colors=colors)
 		plt.axis('equal')
