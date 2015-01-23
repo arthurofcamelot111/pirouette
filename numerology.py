@@ -26,7 +26,7 @@ def final_sum(*numbers):
     x = 0
     for n in numbers:
         x += int(n)
-    while x > 9:
+    while x > 9 and x != 11:
         digits = map(int, str(x))
         x = sum(digits)
     return str(x)
@@ -41,7 +41,7 @@ def all_sums(*numbers):
     raw_sum = x
 
     x0 = x
-    while x > 9:
+    while x > 9 and x != 11:
         x0 = x
         digits = map(int, str(x))
         x = sum(digits)

@@ -44,22 +44,26 @@ class Pirouette:
     def plot_number_frequencies(self, numbers):
         '''Display a pie chart of the frequencies each number occurs in
         list of integer strings `numbers`.'''
-        ns = 12
+        ns = range(1, 10)
+        masters = [11]
 
         labels = []
         length = float(len(numbers))
-        for i in range(1, ns+1):
+        for i in ns + masters:
             name = str(i)
             pct = numbers.count(name) / length
             label = "{0}\n{1:.2%}".format(name, pct)
             labels.append(label)
 
-        freqs = [0] * ns 
+        freqs = [0] * 10 
         for n in numbers:
-            freqs[int(n)-1] += 1
+            if n == '11':
+                freqs[9] += 1
+            else:
+                freqs[int(n)-1] += 1
                 
         colors = [self.data.get_data(str(n), "hex")
-                    for n in range(1, ns)]
+                    for n in ns + masters]
 
         plt.pie(freqs, labels=labels, colors=colors)
         plt.axis('equal')
